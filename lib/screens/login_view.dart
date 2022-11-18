@@ -48,6 +48,11 @@ class LoginView extends StatelessWidget {
                         child: SizedBox(
                           child: TextField(
                             decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  //<-- SEE HERE
+                                  borderSide:
+                                      BorderSide(width: 1, color: Colors.white),
+                                ),
                                 hintTextDirection: TextDirection.rtl,
                                 hintText: 'ايميلك',
                                 hintStyle: GoogleFonts.readexPro(
@@ -64,6 +69,11 @@ class LoginView extends StatelessWidget {
                         child: SizedBox(
                           child: TextField(
                             decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  //<-- SEE HERE
+                                  borderSide:
+                                      BorderSide(width: 1, color: Colors.white),
+                                ),
                                 hintTextDirection: TextDirection.rtl,
                                 hintText: 'كلمة المرور',
                                 hintStyle: GoogleFonts.readexPro(
