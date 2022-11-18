@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/loginView.dart';
 
 void main() {
   runApp(const MaterialApp(
-      home: Scaffold(
-    body: Center(child: Text('Hello, world!')),
-  )));
+    debugShowCheckedModeBanner: false,
+    home: LoginView(),
+  ));
 }
