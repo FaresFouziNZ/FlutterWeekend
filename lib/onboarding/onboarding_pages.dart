@@ -1,11 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/screens/register1.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -41,9 +36,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   Text(
                     "مسافر للرياض وماتعرف احد؟",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.readexPro(
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 35)),
+                    style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, fontSize: 35)),
                   ),
                 ],
               ),
@@ -67,9 +60,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   Text(
                     "ودك في شخص يعلمك الأماكن السرية؟",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.readexPro(
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 35)),
+                    style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, fontSize: 35)),
                   ),
                 ],
               ),
@@ -93,9 +84,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   Text(
                     "ايش فيه احسن من ولد الديرة يخاويك؟",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.readexPro(
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 35)),
+                    style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, fontSize: 35)),
                   ),
                   SizedBox(
                     height: 40,
@@ -160,7 +149,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ),
               ),
             ),
-            // Spacer(),
             TextButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -168,7 +156,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   ));
                 },
                 child: Text(
-                  "تخطي",
+                  'تخطي',
                   style: TextStyle(color: Colors.white),
                 ))
           ],

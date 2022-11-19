@@ -46,7 +46,7 @@ class DriverUser {
 
   factory DriverUser.fromMap(Map<String, dynamic> map) {
     return DriverUser(
-      uid: map['kid'],
+      uid: map['uid'],
       name: map['name'],
       gender: map['gender'],
       age: map['age'],
