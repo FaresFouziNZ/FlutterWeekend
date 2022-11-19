@@ -162,12 +162,15 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
               Center(
                 child: SizedBox(
                   height: 100,
-                  child: CupertinoDatePicker(
-                    backgroundColor: Colors.white,
-                    initialDateTime: dateTime,
-                    mode: CupertinoDatePickerMode.date,
-                    onDateTimeChanged: (dateTime) =>
-                        setState(() => this.dateTime = dateTime),
+                  child: CupertinoTheme(
+                    data: CupertinoThemeData(brightness: Brightness.dark),
+                    child: CupertinoDatePicker(
+                      backgroundColor: Colors.transparent,
+                      initialDateTime: dateTime,
+                      mode: CupertinoDatePickerMode.date,
+                      onDateTimeChanged: (dateTime) =>
+                          setState(() => this.dateTime = dateTime),
+                    ),
                   ),
                 ),
               ),
