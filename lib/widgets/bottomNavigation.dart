@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/profile.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../screens/drivers_list_view.dart';
@@ -18,7 +19,7 @@ class _SalomonNavBarState extends State<SalomonNavBar> {
     DriversListView(),
     DriversListView(),
     DriversListView(),
-    DriversListView(),
+    ProfileView(),
     //  FavoritePage(),
     //  SearchPage(),
     //  ProfilePage(),
@@ -28,7 +29,11 @@ class _SalomonNavBarState extends State<SalomonNavBar> {
     return SalomonBottomBar(
       // margin: EdgeInsets.all(10),
       currentIndex: _currentIndex,
-      onTap: (i) => setState(() => _currentIndex = i),
+
+      onTap: (i) => setState(() {
+        // _children = _currentIndex;
+        _currentIndex = i;
+      }),
       items: [
         /// Home
         SalomonBottomBarItem(
