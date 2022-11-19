@@ -167,26 +167,22 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                           if (regExp.hasMatch(email) && (password.length > 6)) {
                             var result = await _auth.registerWithEmailAndPassword(email, password);
                             print('registering');
-                            if (result == null) {
-                            } else {
-                              //good
-                              print('success');
-                              showDialog(
-                                  context: context,
-                                  builder: (_) => AlertDialog(
-                                        title: const Text('شكرا لك'),
-                                        content: const Text('تم تسجيلك بنجاح'),
-                                        actions: [
-                                          TextButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                                Navigator.pushReplacement(context,
-                                                    MaterialPageRoute(builder: (context) => const DriversListView()));
-                                              },
-                                              child: const Text('Ok'))
-                                        ],
-                                      ));
-                            }
+                            print('success');
+                            showDialog(
+                                context: context,
+                                builder: (_) => AlertDialog(
+                                      title: const Text('شكرا لك'),
+                                      content: const Text('تم تسجيلك بنجاح'),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                              Navigator.pushReplacement(context,
+                                                  MaterialPageRoute(builder: (context) => const DriversListView()));
+                                            },
+                                            child: const Text('Ok'))
+                                      ],
+                                    ));
                           } else {
                             print('regrex');
                             print(email);

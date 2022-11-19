@@ -86,7 +86,7 @@ class _DriversListViewState extends State<DriversListView> {
                                     child: Padding(
                                       padding: const EdgeInsets.fromLTRB(18, 18, 24, 8),
                                       child: Container(
-                                          width: 80,
+                                          width: 77,
                                           height: 50,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
@@ -97,7 +97,7 @@ class _DriversListViewState extends State<DriversListView> {
                                               Row(
                                                 children: [
                                                   Padding(
-                                                    padding: const EdgeInsets.only(right: 8),
+                                                    padding: const EdgeInsets.only(right: 6),
                                                     child: Text('التاريخ'),
                                                   ),
                                                   Spacer(),

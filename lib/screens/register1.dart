@@ -21,10 +21,10 @@ bool male; //can be used for backend i guess
 class FirstRegisterStatePage extends State<FirstRegisterPage> {
   DateTime _selectedDate = DateTime.now();
   DateTime dateTime = DateTime.now();
+  String _first_name = '';
+  String _last_name = '';
   @override
   Widget build(BuildContext context) {
-    String _first_name = '';
-    String _last_name = '';
     return Scaffold(
       body: SizedBox.expand(
         child: Container(
@@ -184,7 +184,7 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => SecondRegisterPage(name: _first_name + _last_name),
+                            builder: (context) => SecondRegisterPage(name: _first_name + ' ' + _last_name),
                           ));
                         },
                         child: Text('التالي',
