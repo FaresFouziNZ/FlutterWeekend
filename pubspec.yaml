@@ -33,6 +33,15 @@ dependencies:
   firebase_storage: ^11.0.6
   ######
   flutter_native_splash: ^2.2.14
+  introduction_screen: ^3.0.2
+  smooth_page_indicator: ^1.0.0+2
+  google_fonts: ^3.0.1
+
+
+  fluent_ui: ^4.0.0
+  scroll_date_picker: ^3.6.0
+
+
   flutter:
     sdk: flutter
 
@@ -69,9 +78,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - bg.png
-      - appleLogo.png
-      - googleLogo.png
+
+      - assets/ 
+      # - wel2.jpg
+      # - bg.png
+      # - appleLogo.png
+      # - googleLogo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -85,10 +97,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: ReadexPro
+      fonts:
+        - asset: assets/fonts/ReadexPro-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
