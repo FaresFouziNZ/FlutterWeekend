@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:blurrycontainer/blurrycontainer.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key key}) : super(key: key);
-
+//Test 123
   @override
   Widget build(BuildContext context) {
     String _email = '';
@@ -22,21 +24,23 @@ class LoginView extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 100),
-                Text(
-                  '! نورت التطبيق',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Text('! نورت التطبيق',
+                    style: GoogleFonts.readexPro(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            letterSpacing: .5,
+                            fontSize: 35))),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.156,
                 ),
                 Container(
                   decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white),
                     color: Color(0x1CFFFFFF),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.25,
                   child: Column(
                     children: [
                       Padding(
@@ -44,9 +48,17 @@ class LoginView extends StatelessWidget {
                         child: SizedBox(
                           child: TextField(
                             decoration: InputDecoration(
-                              hintText: 'الايميل',
-                              hintTextDirection: TextDirection.rtl,
-                            ),
+                                enabledBorder: UnderlineInputBorder(
+                                  //<-- SEE HERE
+                                  borderSide:
+                                      BorderSide(width: 1, color: Colors.white),
+                                ),
+                                hintTextDirection: TextDirection.rtl,
+                                hintText: 'ايميلك',
+                                hintStyle: GoogleFonts.readexPro(
+                                    textStyle: TextStyle(
+                                        color: Colors.white,
+                                        letterSpacing: .5))),
                             onChanged: (value) => _email = value,
                           ),
                           width: MediaQuery.of(context).size.width * 0.8,
@@ -57,12 +69,17 @@ class LoginView extends StatelessWidget {
                         child: SizedBox(
                           child: TextField(
                             decoration: InputDecoration(
-                              hintText: 'كلمة المرور',
-                              hintStyle: TextStyle(
-                                color: Color(0xFF888888),
-                              ),
-                              hintTextDirection: TextDirection.rtl,
-                            ),
+                                enabledBorder: UnderlineInputBorder(
+                                  //<-- SEE HERE
+                                  borderSide:
+                                      BorderSide(width: 1, color: Colors.white),
+                                ),
+                                hintTextDirection: TextDirection.rtl,
+                                hintText: 'كلمة المرور',
+                                hintStyle: GoogleFonts.readexPro(
+                                    textStyle: TextStyle(
+                                        color: Colors.white,
+                                        letterSpacing: .5))),
                             onChanged: (value) => _password = value,
                           ),
                           width: MediaQuery.of(context).size.width * 0.8,
@@ -81,9 +98,14 @@ class LoginView extends StatelessWidget {
                                 foregroundColor:
                                     MaterialStateProperty.all(Colors.black),
                               ),
+
                             ),
                             Spacer(),
-                            Text('تذكرني'),
+                            Text('تذكرني',
+                                style: GoogleFonts.readexPro(
+                                    textStyle: TextStyle(
+                                        color: Colors.white,
+                                        letterSpacing: .5))),
                             Checkbox(
                               value: true,
                               onChanged: (value) {},
@@ -94,15 +116,18 @@ class LoginView extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 60),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.height * 0.075,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'تسجيل الدخول',
-                    ),
+                    child: Text('تسجيل الدخول',
+                        style: GoogleFonts.readexPro(
+                            textStyle: TextStyle(
+                                color: Colors.white, letterSpacing: .5))),
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(Color(0x1CFFFFFF)),
@@ -110,6 +135,7 @@ class LoginView extends StatelessWidget {
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(200.0),
+
                                     side: BorderSide(color: Colors.white)))),
                   ),
                 ),
@@ -119,7 +145,10 @@ class LoginView extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () {},
-                      child: Text('سجل حساب'),
+                      child: Text('سجل حساب',
+                          style: GoogleFonts.readexPro(
+                              textStyle: TextStyle(
+                                  color: Colors.white, letterSpacing: .5))),
                       style: ButtonStyle(
                         foregroundColor:
                             MaterialStateProperty.all(Colors.amber),
@@ -127,7 +156,9 @@ class LoginView extends StatelessWidget {
                     ),
                     Text(
                       'جديد عالتطبيق؟',
-                      style: TextStyle(color: Colors.white),
+                      style: GoogleFonts.readexPro(
+                          textStyle: TextStyle(
+                              color: Colors.white, letterSpacing: .5)),
                     ),
                   ],
                 ),
@@ -139,12 +170,10 @@ class LoginView extends StatelessWidget {
                     indent: 25,
                     endIndent: 35,
                   )),
-                  Text(
-                    "أو سجل عبر",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
+                  Text("أو سجل عبر",
+                      style: GoogleFonts.readexPro(
+                          textStyle: TextStyle(
+                              color: Colors.white, letterSpacing: .5))),
                   Expanded(
                       child: Divider(
                     color: Colors.white,
