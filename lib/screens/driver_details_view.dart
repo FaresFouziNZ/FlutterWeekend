@@ -7,7 +7,6 @@ class DriverDetailsView extends StatelessWidget {
   final DriverUser driver;
   @override
   Widget build(BuildContext context) {
-    List<String> s = ['الانقليزية', 'الفرنسية'];
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -53,18 +52,17 @@ class DriverDetailsView extends StatelessWidget {
                                           padding: const EdgeInsets.fromLTRB(8, 8, 8, 4),
                                           child: Directionality(
                                             textDirection: TextDirection.rtl,
-                                            child: SmallColoredContainer(
-                                                color: Color(0xFFB3E0F1), text: '26 سنة', width: 50),
+                                            child: SmallColoredContainer(color: Color(0xFFB3E0F1), text: '26 سنة'),
                                           ),
                                         ),
                                         Spacer(),
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(8, 8, 8, 4),
                                           child: SmallColoredContainer(
-                                              color: Color(0xFFB3E0F1),
-                                              text: 'ذكر',
-                                              textColor: Colors.black,
-                                              width: 40),
+                                            color: Color(0xFFB3E0F1),
+                                            text: 'ذكر',
+                                            textColor: Colors.black,
+                                          ),
                                         )
                                       ],
                                     ),
@@ -113,7 +111,6 @@ class DriverDetailsView extends StatelessWidget {
                                                 child: SmallColoredContainer(
                                                   text: e,
                                                   color: Color(0x88FFBE00),
-                                                  width: 60,
                                                 ),
                                               ))
                                           .toList(),
@@ -146,7 +143,6 @@ class DriverDetailsView extends StatelessWidget {
                                                 child: SmallColoredContainer(
                                                   text: e,
                                                   color: Color(0xFFFFB8C7),
-                                                  width: 60,
                                                 ),
                                               ))
                                           .toList(),
@@ -179,7 +175,6 @@ class DriverDetailsView extends StatelessWidget {
                                                 child: SmallColoredContainer(
                                                   text: e,
                                                   color: Color(0x8834A853),
-                                                  width: 60,
                                                 ),
                                               ))
                                           .toList(),
