@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
           child: Container(
             child: Column(
               children: [
-                SizedBox(height: 100),
+                SizedBox(height: 72),
                 Text('! نورت التطبيق',
                     style: GoogleFonts.readexPro(
                         textStyle: TextStyle(color: Colors.white, letterSpacing: .5, fontSize: 35))),
@@ -36,7 +36,7 @@ class LoginView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.25,
+                  height: MediaQuery.of(context).size.height * 0.29,
                   child: Column(
                     children: [
                       Padding(
@@ -123,12 +123,14 @@ class LoginView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginView()));
+                      },
                       child: Text('سجل حساب',
-                          style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
-                      style: ButtonStyle(
-                        foregroundColor: MaterialStateProperty.all(Colors.amber),
-                      ),
+                          style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.amber, letterSpacing: .5))),
+                      // style: ButtonStyle(
+                      //   foregroundColor: MaterialStateProperty.all(Colors.amber),
+                      // ),
                     ),
                     Text(
                       'جديد عالتطبيق؟',

@@ -3,12 +3,14 @@ class Booking {
   String uid;
   String driverUid;
   String date;
+  int hours;
 
   Booking({
     this.bid,
     this.uid,
     this.driverUid,
     this.date,
+    this.hours,
   });
 
   Map<String, dynamic> toMap() {
@@ -17,6 +19,7 @@ class Booking {
       'uid': uid,
       'driverUid': driverUid,
       'date': date,
+      'hours': hours,
     };
   }
 
@@ -26,6 +29,7 @@ class Booking {
       uid: map['uid'],
       driverUid: map['driverUid'],
       date: map['date'],
+      hours: map['hours'],
     );
   }
 }

@@ -1,13 +1,10 @@
 // import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_application_1/screens/drivers_list_view.dart';
 import 'package:flutter_application_1/screens/login_view.dart';
+import 'package:flutter_application_1/screens/register2.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:scroll_date_picker/scroll_date_picker.dart';
 
 class FirstRegisterPage extends StatefulWidget {
   const FirstRegisterPage({Key key}) : super(key: key);
@@ -40,7 +37,7 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 20, 0, 0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
                           onPressed: () {
@@ -51,6 +48,15 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                             color: Colors.white,
                           ),
                         ),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => DriversListView()),
+                              );
+                            },
+                            child: Text('تخطي',
+                                style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, fontSize: 14)))),
                       ],
                     ),
                   ),
@@ -60,9 +66,7 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                   Text(
                     "عرفنا عليك",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.readexPro(
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 35)),
+                    style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, fontSize: 35)),
                   ),
                   SizedBox(
                     height: 30,
@@ -106,17 +110,15 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                         padding: const EdgeInsets.all(8.0),
                         child: SizedBox(
                           child: TextField(
+                            style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(width: 1, color: Colors.white),
+                                  borderSide: BorderSide(width: 1, color: Colors.white),
                                 ),
                                 hintTextDirection: TextDirection.rtl,
                                 hintText: 'الاسم الاخير',
                                 hintStyle: GoogleFonts.readexPro(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: .5))),
+                                    textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                             onChanged: (value) => _last_name = value,
                           ),
                           width: 170,
@@ -126,17 +128,15 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                         padding: const EdgeInsets.all(8.0),
                         child: SizedBox(
                           child: TextField(
+                            style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(width: 1, color: Colors.white),
+                                  borderSide: BorderSide(width: 1, color: Colors.white),
                                 ),
                                 hintTextDirection: TextDirection.rtl,
                                 hintText: 'الاسم الاول',
                                 hintStyle: GoogleFonts.readexPro(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: .5))),
+                                    textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                             onChanged: (value) => _first_name = value,
                           ),
                           width: 170,
@@ -152,9 +152,7 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                         child: Text(
                           'تاريخ الميلاد',
                           textAlign: TextAlign.end,
-                          style: GoogleFonts.readexPro(
-                              textStyle:
-                                  TextStyle(color: Colors.white, fontSize: 16)),
+                          style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, fontSize: 16)),
                         ),
                       )
                     ],
@@ -173,8 +171,7 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                           backgroundColor: Colors.transparent,
                           initialDateTime: dateTime,
                           mode: CupertinoDatePickerMode.date,
-                          onDateTimeChanged: (dateTime) =>
-                              setState(() => this.dateTime = dateTime),
+                          onDateTimeChanged: (dateTime) => setState(() => this.dateTime = dateTime),
                         ),
                       ),
                     ),
@@ -186,22 +183,16 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                       height: MediaQuery.of(context).size.height * 0.075,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          //   builder: (context) => const SecondRegisterPage(),
-                          // ));
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => SecondRegisterPage(name: _first_name + _last_name),
+                          ));
                         },
                         child: Text('التالي',
-                            style: GoogleFonts.readexPro(
-                                textStyle: TextStyle(
-                                    color: Colors.white, letterSpacing: .5))),
+                            style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                         style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Color(0x1CFFFFFF)),
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                    side: BorderSide(color: Colors.white)))),
+                            backgroundColor: MaterialStateProperty.all(Color(0x1CFFFFFF)),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12), side: BorderSide(color: Colors.white)))),
                       ),
                     ),
                   ),
@@ -215,15 +206,11 @@ class FirstRegisterStatePage extends State<FirstRegisterPage> {
                           ));
                         },
                         child: Text('سجل دخولك',
-                            style: GoogleFonts.readexPro(
-                                textStyle: TextStyle(
-                                    color: Colors.amber, letterSpacing: .5))),
+                            style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.amber, letterSpacing: .5))),
                       ),
                       Text(
                         'عندك حساب؟',
-                        style: GoogleFonts.readexPro(
-                            textStyle: TextStyle(
-                                color: Colors.white, letterSpacing: .5)),
+                        style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5)),
                       ),
                     ],
                   ),

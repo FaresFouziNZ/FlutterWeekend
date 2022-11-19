@@ -1,28 +1,27 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/cloud_functions/auth_service.dart';
+import 'package:flutter_application_1/screens/drivers_list_view.dart';
 import 'package:flutter_application_1/screens/login_view.dart';
 //import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SecondRegisterPage extends StatefulWidget {
-  const SecondRegisterPage({Key key}) : super(key: key);
-
+  const SecondRegisterPage({Key key, this.name}) : super(key: key);
+  final String name;
   @override
   State<SecondRegisterPage> createState() => _SecondRegisterPageState();
 }
 
 class _SecondRegisterPageState extends State<SecondRegisterPage> {
+  final _auth = Auth();
+
   bool _isHiddenPassword = true;
   bool isEyeCrossed = false;
   Icon eyeIcon = const Icon(Icons.visibility_off);
-
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
-    String _name = '';
-    String _email = '';
-    String _password = '';
-
     return Scaffold(
         body: Center(
       child: SizedBox.expand(
@@ -37,32 +36,22 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(height: 100),
+                    SizedBox(height: 50),
                     Text('كمل بياناتك',
                         style: GoogleFonts.readexPro(
-                            textStyle: TextStyle(
-                                color: Colors.white,
-                                letterSpacing: .5,
-                                fontSize: 35))),
+                            textStyle: TextStyle(color: Colors.white, letterSpacing: .5, fontSize: 35))),
                     Container(
                       margin: const EdgeInsets.all(20),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text('يوسف الأحمد',
-                                style: GoogleFonts.readexPro(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: .5,
-                                        fontSize: 20))),
-                            SizedBox(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.05),
-                            Image.asset(
-                              'assets/male-a.png',
-                              width: MediaQuery.of(context).size.width * 0.3,
-                            ),
-                          ]),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                        Text(widget.name,
+                            style: GoogleFonts.readexPro(
+                                textStyle: TextStyle(color: Colors.white, letterSpacing: .5, fontSize: 20))),
+                        SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+                        Image.asset(
+                          'assets/male-a.png',
+                          width: MediaQuery.of(context).size.width * 0.3,
+                        ),
+                      ]),
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -71,29 +60,30 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.3,
+                      height: MediaQuery.of(context).size.height * 0.39,
                       child: Column(
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
                               child: TextField(
+                                style: TextStyle(color: Colors.white),
                                 decoration: InputDecoration(
                                     prefixIcon: const Icon(
                                       Icons.email,
                                     ),
                                     enabledBorder: UnderlineInputBorder(
                                       //<-- SEE HERE
-                                      borderSide: BorderSide(
-                                          width: 1, color: Colors.white),
+                                      borderSide: BorderSide(width: 1, color: Colors.white),
                                     ),
                                     hintTextDirection: TextDirection.rtl,
                                     hintText: 'ايميلك',
                                     hintStyle: GoogleFonts.readexPro(
-                                        textStyle: TextStyle(
-                                            color: Colors.white,
-                                            letterSpacing: .5))),
-                                onChanged: (value) => _email = value,
+                                        textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
+                                onChanged: (value) {
+                                  email = value;
+                                  print(value);
+                                },
                               ),
                               width: MediaQuery.of(context).size.width * 0.8,
                             ),
@@ -102,6 +92,7 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
                               child: TextField(
+                                style: TextStyle(color: Colors.white),
                                 obscureText: _isHiddenPassword,
                                 decoration: InputDecoration(
                                     prefixIcon: InkWell(
@@ -110,16 +101,13 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                                     ),
                                     enabledBorder: UnderlineInputBorder(
                                       //<-- SEE HERE
-                                      borderSide: BorderSide(
-                                          width: 1, color: Colors.white),
+                                      borderSide: BorderSide(width: 1, color: Colors.white),
                                     ),
                                     hintTextDirection: TextDirection.rtl,
                                     hintText: 'كلمة المرور',
                                     hintStyle: GoogleFonts.readexPro(
-                                        textStyle: TextStyle(
-                                            color: Colors.white,
-                                            letterSpacing: .5))),
-                                onChanged: (value) => _password = value,
+                                        textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
+                                onChanged: (value) => password = value,
                               ),
                               width: MediaQuery.of(context).size.width * 0.8,
                             ),
@@ -128,6 +116,7 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
                               child: TextField(
+                                style: TextStyle(color: Colors.white),
                                 obscureText: _isHiddenPassword,
                                 decoration: InputDecoration(
                                     prefixIcon: InkWell(
@@ -136,16 +125,13 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                                     ),
                                     enabledBorder: UnderlineInputBorder(
                                       //<-- SEE HERE
-                                      borderSide: BorderSide(
-                                          width: 1, color: Colors.white),
+                                      borderSide: BorderSide(width: 1, color: Colors.white),
                                     ),
                                     hintTextDirection: TextDirection.rtl,
                                     hintText: 'التأكد من كلمة المرور',
                                     hintStyle: GoogleFonts.readexPro(
-                                        textStyle: TextStyle(
-                                            color: Colors.white,
-                                            letterSpacing: .5))),
-                                onChanged: (value) => _password = value,
+                                        textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
+                                onChanged: (value) => password = value,
                               ),
                               width: MediaQuery.of(context).size.width * 0.8,
                             ),
@@ -157,9 +143,7 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                                 Spacer(),
                                 Text('الموافقة على الشروط والاحكام',
                                     style: GoogleFonts.readexPro(
-                                        textStyle: TextStyle(
-                                            color: Colors.white,
-                                            letterSpacing: .5))),
+                                        textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                                 Checkbox(
                                   value: true,
                                   onChanged: (value) {},
@@ -177,19 +161,43 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: MediaQuery.of(context).size.height * 0.075,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          RegExp regExp = RegExp('.*@.*');
+                          print('asd');
+                          if (regExp.hasMatch(email) && (password.length > 6)) {
+                            var result = await _auth.registerWithEmailAndPassword(email, password);
+                            print('registering');
+                            if (result == null) {
+                            } else {
+                              //good
+                              print('success');
+                              showDialog(
+                                  context: context,
+                                  builder: (_) => AlertDialog(
+                                        title: const Text('شكرا لك'),
+                                        content: const Text('تم تسجيلك بنجاح'),
+                                        actions: [
+                                          TextButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                                Navigator.pushReplacement(context,
+                                                    MaterialPageRoute(builder: (context) => const DriversListView()));
+                                              },
+                                              child: const Text('Ok'))
+                                        ],
+                                      ));
+                            }
+                          } else {
+                            print('regrex');
+                            print(email);
+                          }
+                        },
                         child: Text('التسجيل',
-                            style: GoogleFonts.readexPro(
-                                textStyle: TextStyle(
-                                    color: Colors.white, letterSpacing: .5))),
+                            style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                         style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Color(0x1CFFFFFF)),
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                    side: BorderSide(color: Colors.white)))),
+                            backgroundColor: MaterialStateProperty.all(Color(0x1CFFFFFF)),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12), side: BorderSide(color: Colors.white)))),
                       ),
                     ),
                     SizedBox(
@@ -205,15 +213,12 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
                             ));
                           },
                           child: Text('سجل دخولك ',
-                              style: GoogleFonts.readexPro(
-                                  textStyle: TextStyle(
-                                      color: Colors.amber, letterSpacing: .5))),
+                              style:
+                                  GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.amber, letterSpacing: .5))),
                         ),
                         Text(
                           'عندك حساب؟',
-                          style: GoogleFonts.readexPro(
-                              textStyle: TextStyle(
-                                  color: Colors.white, letterSpacing: .5)),
+                          style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5)),
                         ),
                       ],
                     ),
@@ -231,9 +236,7 @@ class _SecondRegisterPageState extends State<SecondRegisterPage> {
     setState(() {
       _isHiddenPassword = !_isHiddenPassword;
       isEyeCrossed = !isEyeCrossed;
-      eyeIcon = isEyeCrossed
-          ? const Icon(Icons.visibility)
-          : const Icon(Icons.visibility_off);
+      eyeIcon = isEyeCrossed ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off);
     });
   }
 }

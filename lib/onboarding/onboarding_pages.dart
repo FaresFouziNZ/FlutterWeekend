@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/local_user.dart';
+import 'package:flutter_application_1/screens/drivers_list_view.dart';
 import 'package:flutter_application_1/screens/register1.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -20,6 +23,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<LocalUser>(context);
+    if (user?.uid != null) {
+      return DriversListView();
+    }
     return Scaffold(
       body: PageView(
         controller: controller,

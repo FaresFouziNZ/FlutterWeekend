@@ -234,7 +234,7 @@ class DriverDetailsView extends StatelessWidget {
                                                                     '/' +
                                                                     selectedDate.year.toString(),
                                                                 driverUid: driver.uid,
-                                                                uid: 'asd');
+                                                                uid: user.uid);
                                                             await DatabaseService().bookDriver(booking);
                                                             showDialog(
                                                                 context: context,
