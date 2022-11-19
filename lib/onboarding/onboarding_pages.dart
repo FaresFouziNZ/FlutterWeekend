@@ -31,7 +31,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 290,
+                    height: 200,
                   ),
                   Text(
                     "مسافر للرياض وماتعرف احد؟",
@@ -55,7 +55,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 290,
+                    height: 200,
                   ),
                   Text(
                     "ودك في شخص يعلمك الأماكن السرية؟",
@@ -79,12 +79,41 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 290,
+                    height: 300,
                   ),
                   Text(
                     "ايش فيه احسن من ولد الديرة يخاويك؟",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, fontSize: 35)),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12.0, bottom: 8),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      height: MediaQuery.of(context).size.height * 0.075,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const FirstRegisterPage(),
+                          ));
+                        },
+                        child: Text('يلا نبدأ',
+                            style: GoogleFonts.readexPro(
+                                textStyle: TextStyle(
+                                    color: Colors.white, letterSpacing: .5))),
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Color(0x1CFFFFFF)),
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    side: BorderSide(color: Colors.white)))),
+                      ),
+                    ),
                   ),
                 ],
               ),
