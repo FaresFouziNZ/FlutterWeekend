@@ -78,7 +78,8 @@ class LoginView extends StatelessWidget {
                               },
                               child: Text('نسيت كلمة المرور؟'),
                               style: ButtonStyle(
-                                foregroundColor: MaterialStateProperty.all(Colors.black),
+                                foregroundColor:
+                                    MaterialStateProperty.all(Colors.black),
                               ),
                             ),
                             Spacer(),
@@ -103,9 +104,13 @@ class LoginView extends StatelessWidget {
                       'تسجيل الدخول',
                     ),
                     style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Color(0x1CFFFFFF)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(200.0), side: BorderSide(color: Colors.white)))),
+                        backgroundColor:
+                            MaterialStateProperty.all(Color(0x1CFFFFFF)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(200.0),
+                                    side: BorderSide(color: Colors.white)))),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -116,7 +121,8 @@ class LoginView extends StatelessWidget {
                       onPressed: () {},
                       child: Text('سجل حساب'),
                       style: ButtonStyle(
-                        foregroundColor: MaterialStateProperty.all(Colors.amber),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.amber),
                       ),
                     ),
                     Text(
