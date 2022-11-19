@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key key}) : super(key: key);
-
+//Test 123
   @override
   Widget build(BuildContext context) {
     String _email = '';
