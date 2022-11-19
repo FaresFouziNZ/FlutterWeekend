@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginView extends StatelessWidget {
@@ -26,10 +25,7 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: 100),
                 Text('! نورت التطبيق',
                     style: GoogleFonts.readexPro(
-                        textStyle: TextStyle(
-                            color: Colors.white,
-                            letterSpacing: .5,
-                            fontSize: 35))),
+                        textStyle: TextStyle(color: Colors.white, letterSpacing: .5, fontSize: 35))),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.156,
                 ),
@@ -50,15 +46,12 @@ class LoginView extends StatelessWidget {
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   //<-- SEE HERE
-                                  borderSide:
-                                      BorderSide(width: 1, color: Colors.white),
+                                  borderSide: BorderSide(width: 1, color: Colors.white),
                                 ),
                                 hintTextDirection: TextDirection.rtl,
                                 hintText: 'ايميلك',
                                 hintStyle: GoogleFonts.readexPro(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: .5))),
+                                    textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                             onChanged: (value) => _email = value,
                           ),
                           width: MediaQuery.of(context).size.width * 0.8,
@@ -71,15 +64,12 @@ class LoginView extends StatelessWidget {
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   //<-- SEE HERE
-                                  borderSide:
-                                      BorderSide(width: 1, color: Colors.white),
+                                  borderSide: BorderSide(width: 1, color: Colors.white),
                                 ),
                                 hintTextDirection: TextDirection.rtl,
                                 hintText: 'كلمة المرور',
                                 hintStyle: GoogleFonts.readexPro(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: .5))),
+                                    textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                             onChanged: (value) => _password = value,
                           ),
                           width: MediaQuery.of(context).size.width * 0.8,
@@ -95,17 +85,13 @@ class LoginView extends StatelessWidget {
                               },
                               child: Text('نسيت كلمة المرور؟'),
                               style: ButtonStyle(
-                                foregroundColor:
-                                    MaterialStateProperty.all(Colors.black),
+                                foregroundColor: MaterialStateProperty.all(Colors.black),
                               ),
-
                             ),
                             Spacer(),
                             Text('تذكرني',
                                 style: GoogleFonts.readexPro(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: .5))),
+                                    textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                             Checkbox(
                               value: true,
                               onChanged: (value) {},
@@ -125,18 +111,11 @@ class LoginView extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {},
                     child: Text('تسجيل الدخول',
-                        style: GoogleFonts.readexPro(
-                            textStyle: TextStyle(
-                                color: Colors.white, letterSpacing: .5))),
+                        style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Color(0x1CFFFFFF)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(200.0),
-
-                                    side: BorderSide(color: Colors.white)))),
+                        backgroundColor: MaterialStateProperty.all(Color(0x1CFFFFFF)),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(200.0), side: BorderSide(color: Colors.white)))),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -146,19 +125,14 @@ class LoginView extends StatelessWidget {
                     TextButton(
                       onPressed: () {},
                       child: Text('سجل حساب',
-                          style: GoogleFonts.readexPro(
-                              textStyle: TextStyle(
-                                  color: Colors.white, letterSpacing: .5))),
+                          style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                       style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all(Colors.amber),
+                        foregroundColor: MaterialStateProperty.all(Colors.amber),
                       ),
                     ),
                     Text(
                       'جديد عالتطبيق؟',
-                      style: GoogleFonts.readexPro(
-                          textStyle: TextStyle(
-                              color: Colors.white, letterSpacing: .5)),
+                      style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5)),
                     ),
                   ],
                 ),
@@ -171,9 +145,7 @@ class LoginView extends StatelessWidget {
                     endIndent: 35,
                   )),
                   Text("أو سجل عبر",
-                      style: GoogleFonts.readexPro(
-                          textStyle: TextStyle(
-                              color: Colors.white, letterSpacing: .5))),
+                      style: GoogleFonts.readexPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5))),
                   Expanded(
                       child: Divider(
                     color: Colors.white,
