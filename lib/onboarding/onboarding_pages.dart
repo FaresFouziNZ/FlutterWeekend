@@ -125,7 +125,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               child: SmoothPageIndicator(
                 controller: controller,
                 count: 3,
-                effect: SlideEffect(activeDotColor: Colors.white),
+                effect: WormEffect(
+                  activeDotColor: Colors.white,
+                ),
               ),
             ),
             // Spacer(),
