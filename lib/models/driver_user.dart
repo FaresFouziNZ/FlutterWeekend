@@ -8,9 +8,9 @@ class DriverUser {
   double price;
   String description;
   String city;
-  List<String> languages;
-  List<String> expertise;
-  List<String> hobbies;
+  List<dynamic> languages;
+  List<dynamic> expertise;
+  List<dynamic> hobbies;
 
   DriverUser({
     this.uid,
@@ -29,7 +29,7 @@ class DriverUser {
 
   Map<String, dynamic> toMap() {
     return {
-      'kid': uid,
+      'uid': uid,
       'name': name,
       'gender': gender,
       'age': age,
@@ -55,9 +55,9 @@ class DriverUser {
       price: map['price'],
       description: map['description'],
       city: map['city'],
-      languages: List.from(map['languages']),
-      expertise: List.from(map['expertise']),
-      hobbies: List.from(map['hobbies']),
+      languages: map['languages'],
+      expertise: map['expertise'],
+      hobbies: map['hobbies'],
     );
   }
 }
