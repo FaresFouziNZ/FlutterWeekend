@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
       child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("bg.png"),
+              image: AssetImage("assets/bg.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -93,16 +93,11 @@ class LoginView extends StatelessWidget {
                               onPressed: () {
                                 // Navigator.push(context, MaterialPageRoute(builder: (context) => LoginView()));
                               },
-
-                              child: Text('نسيت كلمة المرور؟',
-                                  style: GoogleFonts.readexPro(
-                                      textStyle: TextStyle(
-                                          color: Colors.white,
-                                          letterSpacing: .5))),
-                              //style: ButtonStyle(
-                              // foregroundColor:
-                              //     MaterialStateProperty.all(Colors.white),
-                              // ),
+                              child: Text('نسيت كلمة المرور؟'),
+                              style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all(Colors.black),
+                              ),
 
                             ),
                             Spacer(),
@@ -139,8 +134,7 @@ class LoginView extends StatelessWidget {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
-
-                                    borderRadius: BorderRadius.circular(12),
+                                    borderRadius: BorderRadius.circular(200.0),
 
                                     side: BorderSide(color: Colors.white)))),
                   ),
@@ -196,7 +190,7 @@ class LoginView extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {},
                         child: Image.asset(
-                          'googleLogo.png',
+                          'assets/googleLogo.png',
                           width: 25,
                         ),
                         style: ElevatedButton.styleFrom(

@@ -92,11 +92,11 @@ flutter:
       - female-a.png
       - male-a.png
       - assets/ 
+
       # - wel2.jpg
       # - bg.png
       # - appleLogo.png
       # - googleLogo.png
-
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
