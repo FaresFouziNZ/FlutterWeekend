@@ -93,6 +93,7 @@ class LoginView extends StatelessWidget {
                               onPressed: () {
                                 // Navigator.push(context, MaterialPageRoute(builder: (context) => LoginView()));
                               },
+
                               child: Text('نسيت كلمة المرور؟',
                                   style: GoogleFonts.readexPro(
                                       textStyle: TextStyle(
@@ -102,6 +103,7 @@ class LoginView extends StatelessWidget {
                               // foregroundColor:
                               //     MaterialStateProperty.all(Colors.white),
                               // ),
+
                             ),
                             Spacer(),
                             Text('تذكرني',
@@ -137,7 +139,9 @@ class LoginView extends StatelessWidget {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
+
                                     borderRadius: BorderRadius.circular(12),
+
                                     side: BorderSide(color: Colors.white)))),
                   ),
                 ),
