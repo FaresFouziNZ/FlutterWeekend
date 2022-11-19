@@ -3,24 +3,18 @@ import 'package:flutter_application_1/cloud_functions/database.dart';
 import 'package:flutter_application_1/widgets/bottomNavigation.dart';
 import 'package:flutter_application_1/widgets/driver_card.dart';
 
-class DriversListView extends StatelessWidget {
+class DriversListView extends StatefulWidget {
   const DriversListView({Key key}) : super(key: key);
 
   @override
+  State<DriversListView> createState() => _DriversListViewState();
+}
+
+class _DriversListViewState extends State<DriversListView> {
+  DateTime _date = DateTime.now();
+
+  @override
   Widget build(BuildContext context) {
-    // var b = DriverUser(
-    //   name: 'احمد',
-    //   age: 20,
-    //   city: 'الرياض',
-    //   languages: ['الانقليزية', 'العربية'],
-    //   rating: 4.5,
-    //   description: 'الحمدلله انا كويس',
-    //   expertise: ['عائلي', 'شبابي', 'محمدي', 'الووو', 'شسي'],
-    //   gender: true,
-    //   uid: 'aaasdasdad',
-    //   price: 50,
-    //   hobbies: ['السباحة', 'العاب لوحية'],
-    // );
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -79,30 +73,41 @@ class DriversListView extends StatelessWidget {
                               padding: const EdgeInsets.only(right: 5),
                               child: Row(
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(18, 18, 24, 8),
-                                    child: Container(
-                                        width: 80,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(10),
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsets.only(right: 8),
-                                                  child: Text('التاريخ'),
-                                                ),
-                                                Spacer(),
-                                                Icon(Icons.keyboard_arrow_down_rounded)
-                                              ],
-                                            ),
-                                            Text('Nov 23')
-                                          ],
-                                        )),
+                                  GestureDetector(
+                                    onTap: () async {
+                                      _date = await showDatePicker(
+                                          context: context,
+                                          initialDate: DateTime.now(),
+                                          firstDate: DateTime.now(),
+                                          lastDate: DateTime.now().add(Duration(days: 30)));
+                                      setState(() {});
+                                      print(_date.toString());
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(18, 18, 24, 8),
+                                      child: Container(
+                                          width: 80,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(10),
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(right: 8),
+                                                    child: Text('التاريخ'),
+                                                  ),
+                                                  Spacer(),
+                                                  Icon(Icons.keyboard_arrow_down_rounded)
+                                                ],
+                                              ),
+                                              Text(_date.day.toString() + '/' + _date.month.toString())
+                                            ],
+                                          )),
+                                    ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(16, 18, 8, 8),
@@ -132,6 +137,7 @@ class DriversListView extends StatelessWidget {
                                     padding: const EdgeInsets.fromLTRB(8, 18, 8, 8),
                                     child: Container(
                                         width: 80,
+                                        height: 50,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius: BorderRadius.circular(10),
@@ -148,7 +154,7 @@ class DriversListView extends StatelessWidget {
                                                 Icon(Icons.keyboard_arrow_down_rounded)
                                               ],
                                             ),
-                                            Text('الفرنسية')
+                                            Text('')
                                           ],
                                         )),
                                   ),
@@ -181,6 +187,7 @@ class DriversListView extends StatelessWidget {
                                       .map<Widget>((e) => Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: DriverCard(
+                                              selectedDate: _date,
                                               driverUser: e,
                                             ),
                                           ))

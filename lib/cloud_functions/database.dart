@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_1/models/booking.dart';
 import 'package:flutter_application_1/models/driver_user.dart';
 
 import '../models/local_user.dart';
@@ -28,5 +29,9 @@ class DatabaseService {
   Future addDriver(DriverUser driverUser) async {
     //FIXME
     return await collections.drivers.doc(driverUser.uid).set(driverUser.toMap(), SetOptions(merge: true));
+  }
+
+  Future bookDriver(Booking booking) async {
+    return await collections.bookings.add(booking.toMap()).then((value) => value.id);
   }
 }

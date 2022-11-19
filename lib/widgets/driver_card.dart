@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/driver_user.dart';
+import 'package:flutter_application_1/screens/driver_details_view.dart';
 
 import 'smallColordContainer.dart';
 
 class DriverCard extends StatelessWidget {
-  const DriverCard({Key key, this.driverUser}) : super(key: key);
+  const DriverCard({Key key, this.driverUser, this.selectedDate}) : super(key: key);
   final DriverUser driverUser;
+  final DateTime selectedDate;
   @override
   Widget build(BuildContext context) {
     List<String> s = ['ssd', 'sqw', 'asd', 'asd'];
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DriverDetailsView(
+                      selectedDate: selectedDate,
+                      driver: driverUser,
+                    )));
+      },
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -26,7 +36,9 @@ class DriverCard extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(9, 9, 9, 0),
-                    child: CircleAvatar(),
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(driverUser.imageUrl),
+                    ),
                   ),
                   Text(driverUser.gender ? 'ذكر' : 'انثى'),
                   Text(driverUser.age.toString()),
