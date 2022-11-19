@@ -29,6 +29,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.9.0"
+  blurrycontainer:
+    dependency: "direct main"
+    description:
+      name: blurrycontainer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   boolean_selector:
     dependency: transitive
     description:
@@ -237,7 +244,9 @@ packages:
       name: google_fonts
       url: "https://pub.dartlang.org"
     source: hosted
+
     version: "3.0.1"
+
   html:
     dependency: transitive
     description:
@@ -413,6 +422,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.4"
+
   recase:
     dependency: transitive
     description:
@@ -516,6 +526,14 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  wave:
+    dependency: "direct main"
+    description:
+      name: wave
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.2"
+
   win32:
     dependency: transitive
     description:

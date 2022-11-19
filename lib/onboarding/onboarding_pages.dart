@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/drivers_list_view.dart';
+import 'package:flutter_application_1/screens/register1.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -122,7 +122,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ),
             TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DriversListView()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const FirstRegisterPage(),
+                  ));
                 },
                 child: Text(
                   'تخطي',
