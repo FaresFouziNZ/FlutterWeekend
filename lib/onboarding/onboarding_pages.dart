@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_application_1/screens/register1.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -132,7 +133,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ),
             // Spacer(),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const FirstRegisterPage(),
+                  ));
+                },
                 child: Text(
                   "تخطي",
                   style: TextStyle(color: Colors.white),
